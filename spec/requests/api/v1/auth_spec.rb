@@ -31,7 +31,6 @@ describe Api::V1::AuthController, type: :request do
     it "returns a token" do
       driver = create :driver
       post '/api/v1/auth/sign_in', { phone: driver.phone, code: driver.otp_code }
-      puts response.body
       token = JSON.parse(response.body)["driver"]["access_token"]
       expect(token).to eql(driver.reload.authentication_token)
     end

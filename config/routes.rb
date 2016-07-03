@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       post 'auth/log_out',   to: 'auth#log_out'
       get 'auth/hello',      to: 'auth#hello'
       post 'location',       to: 'location#update'
+
+      get 'requests', to: 'request#index'
+      post 'requests', to: 'request#create'
     end
   end
 end
