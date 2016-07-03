@@ -34,4 +34,17 @@ describe Api::V1::RequestController, type: :request do
       expect(response).to be_success
     end
   end
+
+  describe "POST #cancel" do
+    it "cancels an existing request" do
+      driver = create :driver
+      request = create(:request, driver: driver)
+      headers = { "X-Driver-Token": driver.authentication_token }
+    
+      expect do 
+        post '/api/v1/requests/cancel', { request_id: request.id }, headers
+        request.reload
+      end.to change { request.status }.to("canceled")
+    end
+  end
 end

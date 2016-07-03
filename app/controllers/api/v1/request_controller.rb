@@ -13,6 +13,14 @@ class Api::V1::RequestController < ApiController
     render json: request, serializer: Api::V1::RequestSerializer
   end
 
+  def cancel
+    request = current_driver.requests.find(params[:request_id])
+    request.status = :canceled
+    request.save
+
+    render json: request, serializer: Api::V1::RequestSerializer
+  end
+
   private
 
   def request_params
