@@ -1,4 +1,6 @@
 class ApiController < ApplicationController
+  include ActionController::Serialization
+
   protect_from_forgery with: :null_session
   acts_as_token_authentication_handler_for Driver, fallback_to_devise: false
   before_action :authenticate_driver!

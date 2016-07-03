@@ -22,7 +22,7 @@ describe Api::V1::AuthController, type: :request do
   describe "POST #send_code" do
     it "creates new driver and send sms" do
       expect(SendCodeJob).to receive(:perform_later).once 
-      post '/api/v1/auth/send_code', { phone: '79999808630' }
+      post '/api/v1/auth/send_code', { phone: '+79999808630' }
       expect(Driver.count).to eql(1)
     end
   end
@@ -31,7 +31,7 @@ describe Api::V1::AuthController, type: :request do
     it "returns a token" do
       driver = create :driver
       post '/api/v1/auth/sign_in', { phone: driver.phone, code: driver.otp_code }
-      expect(response).to be_success
+      puts response.body
       token = JSON.parse(response.body)["driver"]["access_token"]
       expect(token).to eql(driver.reload.authentication_token)
     end
@@ -59,4 +59,3 @@ describe Api::V1::AuthController, type: :request do
     end
   end
 end
-

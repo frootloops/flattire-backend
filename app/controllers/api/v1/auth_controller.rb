@@ -4,23 +4,23 @@ class Api::V1::AuthController < ApiController
   def send_code
     driver = Driver.find_or_create_by!(phone: params[:phone])
     SendCodeJob.perform_later(driver_id: driver.id)
-    render nothing: true
+    head :ok
   end
 
   def log_in
     driver = Driver.find_by!(phone: params[:phone])
     return head(:unauthorized) unless driver.authenticate_otp(params[:code])
-    render json: driver
+    render json: driver, serializer: DriverSerializer
   end
 
   def log_out
     current_driver.authentication_token = ""
     current_driver.save!
-    render nothing: true
+    head :ok
   end
 
   def hello
-    render nothing: true
+    head :ok
   end
 
 end
