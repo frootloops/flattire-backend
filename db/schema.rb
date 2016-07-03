@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703124221) do
+ActiveRecord::Schema.define(version: 20160703180644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,4 +49,18 @@ ActiveRecord::Schema.define(version: 20160703124221) do
     t.index ["phone"], name: "index_drivers_on_phone", unique: true, using: :btree
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.integer  "driver_id"
+    t.integer  "status",     default: 0,  null: false
+    t.text     "address",    default: "", null: false
+    t.text     "cause",      default: "", null: false
+    t.float    "latitude",                null: false
+    t.float    "longitude",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index "ll_to_earth(latitude, longitude)", name: "requests_earthdistance_ix", using: :gist
+    t.index ["driver_id"], name: "index_requests_on_driver_id", using: :btree
+  end
+
+  add_foreign_key "requests", "drivers"
 end

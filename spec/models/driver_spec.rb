@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Driver, type: :model do
+describe Driver, type: :model do
+  it { expect(Driver.new).to have_many(:requests) }
+
   describe "validation" do
     it "number validation" do
       driver = build(:driver, phone: "+79999808630")

@@ -9,4 +9,6 @@ class Driver < ApplicationRecord
     query = "earth_box(ll_to_earth(?, ?), ?) @> ll_to_earth(latitude, longitude)"
     where(query, latitude, longitude, metres)
   }
+
+  has_many :requests
 end
