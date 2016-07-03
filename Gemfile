@@ -26,6 +26,7 @@ gem "phonelib"
 gem "twilio-ruby"
 gem "sidekiq"
 gem 'simple_token_authentication', git: 'https://github.com/gonzalo-bulnes/simple_token_authentication.git', branch: 'spike-add-rails-5-support-without-Mongoid-support', ref: '0f236983914c76ac55b8bf332b70ec4fb1572dae'
+gem "active_model_serializers"
 
 group :development do
   gem "listen"

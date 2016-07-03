@@ -38,6 +38,10 @@ GEM
     active_model_otp (1.2.0)
       activemodel
       rotp
+    active_model_serializers (0.10.0)
+      actionpack (>= 4.0)
+      activemodel (>= 4.0)
+      railties (>= 4.0)
     activejob (5.0.0)
       activesupport (= 5.0.0)
       globalid (>= 0.3.6)
@@ -309,6 +313,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_otp
+  active_model_serializers
   autoprefixer-rails
   awesome_print
   bullet
