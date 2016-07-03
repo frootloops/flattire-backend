@@ -23,6 +23,7 @@ gem "title"
 gem "uglifier"
 gem "devise"
 gem "active_model_otp"
+gem "phonelib"
 
 group :development do
   gem "listen"
