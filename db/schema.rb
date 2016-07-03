@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(version: 20160703115138) do
     t.string   "encrypted_password",   default: "", null: false
     t.string   "otp_secret_key"
     t.integer  "otp_counter"
-    t.string   "authentication_token"
+    t.string   "authentication_token", default: "", null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.index ["authentication_token"], name: "index_drivers_on_authentication_token", unique: true, using: :btree
     t.index ["phone"], name: "index_drivers_on_phone", unique: true, using: :btree
   end
 

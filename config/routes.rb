@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post 'auth/send_code', to: 'auth#index'
       post 'auth/sign_in', to: 'auth#index'
       post 'auth/log_out', to: 'auth#index'
+      get 'auth/hello', to: 'auth#hello'
     end
   end
 end

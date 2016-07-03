@@ -34,12 +34,13 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.0]
       
       t.string  :otp_secret_key
       t.integer :otp_counter
-      t.string  :authentication_token
+      t.string  :authentication_token, null: false, default: ""
 
       t.timestamps null: false
     end
 
     add_index :drivers, :phone,                unique: true
+    add_index :drivers, :authentication_token, unique: true
     # add_index :drivers, :email,                unique: true
     # add_index :drivers, :reset_password_token, unique: true
     # add_index :drivers, :confirmation_token,   unique: true
