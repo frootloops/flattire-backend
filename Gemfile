@@ -24,6 +24,7 @@ gem "uglifier"
 gem "devise"
 gem "active_model_otp"
 gem "phonelib"
+gem "twilio-ruby"
 
 group :development do
   gem "listen"
