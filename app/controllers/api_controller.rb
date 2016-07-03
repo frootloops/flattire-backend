@@ -1,15 +1,12 @@
 class ApiController < ApplicationController
   protect_from_forgery with: :null_session
-  before_filter :authenticate
-
-  private
-
-  def authenticate
-    authenticate_driver_by_token! && authenticate_driver!
+  acts_as_token_authentication_handler_for Driver, if: ->(controller) do
+    controller.driver_token_authenticable?
   end
 
-  def authenticate_driver_by_token!
-    render status: :unauthorized
+  protected
+
+  def driver_token_authenticable?
+    true
   end
 end
-

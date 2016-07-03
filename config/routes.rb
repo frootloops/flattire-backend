@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :drivers
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       post 'auth/send_code', to: 'auth#index'
