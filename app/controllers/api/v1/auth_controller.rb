@@ -1,5 +1,5 @@
 class Api::V1::AuthController < ApiController
-  skip_before_filter :authenticate_driver!, only: [:send_code, :log_in]
+  skip_before_action :authenticate_driver!, only: [:send_code, :log_in]
 
   def send_code
     driver = Driver.find_or_create_by!(phone: params[:phone])

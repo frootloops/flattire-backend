@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
   protect_from_forgery with: :null_session
   acts_as_token_authentication_handler_for Driver, fallback_to_devise: false
-  before_filter :authenticate_driver!
+  before_action :authenticate_driver!
 
   protected
 
