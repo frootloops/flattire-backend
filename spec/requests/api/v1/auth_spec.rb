@@ -18,5 +18,12 @@ describe Api::V1::AuthController, type: :request do
       expect(response).to be_success
     end
   end
-end
 
+  describe "POST #send_code" do
+    it "creates new driver and send sms" do
+      expect(SendCodeJob).to receive(:perform_later).once 
+      post '/api/v1/auth/send_code', { phone: '+79999808630' }
+      expect(Driver.count).to eql(1)
+    end
+  end
+end
