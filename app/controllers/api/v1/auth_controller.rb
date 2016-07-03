@@ -1,5 +1,9 @@
 class Api::V1::AuthController < ApiController
-  def create
+
+  def send_code
+    driver = Driver.find_or_create_by!(phone: params[:phone])
+    SendCodeJob.perform_async(driver_id: driver.id)
+    render nothing: true
   end
 
   def hello

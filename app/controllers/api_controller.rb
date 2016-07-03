@@ -9,4 +9,8 @@ class ApiController < ApplicationController
   def driver_token_authenticable?
     true
   end
+
+  def auth_token
+    request.headers["HTTP_X_DRIVER_TOKEN"]
+  end
 end
