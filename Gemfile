@@ -22,6 +22,7 @@ gem "suspenders"
 gem "title"
 gem "uglifier"
 gem "devise"
+gem "active_model_otp"
 
 group :development do
   gem "listen"
