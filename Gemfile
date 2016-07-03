@@ -3,7 +3,6 @@ source "https://rubygems.org"
 ruby "2.3.1"
 
 gem "autoprefixer-rails"
-gem "delayed_job_active_record"
 gem "flutie"
 gem "honeybadger"
 gem "jquery-rails"
@@ -25,6 +24,7 @@ gem "devise"
 gem "active_model_otp"
 gem "phonelib"
 gem "twilio-ruby"
+gem "sidekiq"
 
 group :development do
   gem "listen"
