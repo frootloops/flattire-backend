@@ -21,6 +21,7 @@ gem "sprockets-es6"
 gem "suspenders"
 gem "title"
 gem "uglifier"
+gem "devise"
 
 group :development do
   gem "listen"
