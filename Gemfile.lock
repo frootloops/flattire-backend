@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/gonzalo-bulnes/simple_token_authentication.git
+  revision: 0f236983914c76ac55b8bf332b70ec4fb1572dae
+  ref: 0f236983914c76ac55b8bf332b70ec4fb1572dae
+  branch: spike-add-rails-5-support-without-Mongoid-support
+  specs:
+    simple_token_authentication (1.12.0)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -332,6 +343,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simple_form
+  simple_token_authentication!
   simplecov
   skylight
   spring
