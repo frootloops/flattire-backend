@@ -45,7 +45,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "refills"
-  gem "rspec-rails", "~> 3.5.0.beta4"
+  gem "rspec-rails", "~> 3.5.0"
 end
 
 group :development, :staging do
