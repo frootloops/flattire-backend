@@ -13,12 +13,13 @@ class Api::V1::RequestController < ApiController
     render json: request, serializer: Api::V1::RequestSerializer
   end
 
-  def cancel
-    request = current_driver.requests.find(params[:request_id])
-    request.status = :canceled
-    request.save
+  def done
+    update_status :done
+  end
 
-    render json: request, serializer: Api::V1::RequestSerializer
+
+  def cancel
+    update_status :canceled
   end
 
   private
@@ -27,5 +28,12 @@ class Api::V1::RequestController < ApiController
     params.require(:request).permit(:address, :cause, :latitude, :longitude)
   end
 
+  def update_status(status)
+    request = current_driver.requests.find(params[:request_id])
+    request.status = status
+    request.save
+
+    render json: request, serializer: Api::V1::RequestSerializer
+  end
 end
 

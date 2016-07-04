@@ -49,7 +49,6 @@ describe Api::V1::AuthController, type: :request do
       expect {
         driver.reload
       }.to change(driver, :authentication_token)
-
     end
 
     it "returns 401" do

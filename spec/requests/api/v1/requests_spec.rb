@@ -35,6 +35,19 @@ describe Api::V1::RequestController, type: :request do
     end
   end
 
+  describe "POST #done" do
+   it "dones an existing request" do
+      driver = create :driver
+      request = create(:request, driver: driver)
+      headers = { "X-Driver-Token": driver.authentication_token }
+    
+      expect do 
+        post '/api/v1/requests/done', { request_id: request.id }, headers
+        request.reload
+      end.to change { request.status }.to("done")
+    end
+  end
+
   describe "POST #cancel" do
     it "cancels an existing request" do
       driver = create :driver
