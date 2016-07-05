@@ -29,7 +29,7 @@ class Api::V1::RequestController < ApiController
   end
 
   def update_status(status)
-    request = current_driver.requests.find(params[:request_id])
+    request = current_driver.requests.find(params[:id])
     request.status = status
     request.save
 

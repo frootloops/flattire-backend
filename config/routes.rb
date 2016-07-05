@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
       get 'requests', to: 'request#index'
       post 'requests', to: 'request#create'
-      post 'requests/done', to: 'request#done'
-      post 'requests/cancel', to: 'request#cancel'
+      post 'requests/:id/done', to: 'request#done'
+      post 'requests/:id/cancel', to: 'request#cancel'
     end
   end
 end

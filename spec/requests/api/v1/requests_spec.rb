@@ -42,7 +42,7 @@ describe Api::V1::RequestController, type: :request do
       headers = { "X-Driver-Token": driver.authentication_token }
     
       expect do 
-        post '/api/v1/requests/done', { request_id: request.id }, headers
+        post "/api/v1/requests/#{request.id}/done", {}, headers
         request.reload
       end.to change { request.status }.to("done")
     end
@@ -55,7 +55,7 @@ describe Api::V1::RequestController, type: :request do
       headers = { "X-Driver-Token": driver.authentication_token }
     
       expect do 
-        post '/api/v1/requests/cancel', { request_id: request.id }, headers
+        post "/api/v1/requests/#{request.id}/cancel", {}, headers
         request.reload
       end.to change { request.status }.to("canceled")
     end
