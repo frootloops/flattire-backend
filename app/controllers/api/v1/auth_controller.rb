@@ -10,7 +10,7 @@ class Api::V1::AuthController < ApiController
   def log_in
     driver = Driver.find_by!(phone: params[:phone])
     return head(:unauthorized) unless driver.authenticate_otp(params[:code])
-    render json: driver, serializer: DriverSerializer
+    render json: driver, serializer: Api::V1::DriverSerializer
   end
 
   def log_out

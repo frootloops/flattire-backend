@@ -18,7 +18,7 @@ describe Api::V1::RequestController, type: :request do
       get '/api/v1/requests', {}, headers
       expect(response).to be_success
 
-      requests = JSON.parse(response.body)["requests"]
+      requests = JSON.parse(response.body)
       expect(requests.count).to eql(1)
     end
   end

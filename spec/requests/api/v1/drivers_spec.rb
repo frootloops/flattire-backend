@@ -18,7 +18,7 @@ describe Api::V1::DriverController, type: :request do
       get '/api/v1/me', {}, headers
       expect(response).to be_success
 
-      data = JSON.parse(response.body)["driver"]
+      data = JSON.parse(response.body)
       expect(data["phone"]).to eql(driver.phone)
     end
   end

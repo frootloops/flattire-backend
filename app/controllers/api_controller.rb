@@ -10,5 +10,6 @@ class ApiController < ApplicationController
   def auth_token
     request.headers["HTTP_X_DRIVER_TOKEN"]
   end
+
 end
 
