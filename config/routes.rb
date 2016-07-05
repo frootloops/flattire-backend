@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       post 'requests', to: 'request#create'
       post 'requests/:id/done', to: 'request#done'
       post 'requests/:id/cancel', to: 'request#cancel'
+
+      get 'me', to: 'driver#me'
     end
   end
 end

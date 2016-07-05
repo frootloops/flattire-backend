@@ -17,7 +17,6 @@ class Api::V1::RequestController < ApiController
     update_status :done
   end
 
-
   def cancel
     update_status :canceled
   end
