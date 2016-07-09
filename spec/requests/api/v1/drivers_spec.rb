@@ -22,5 +22,18 @@ describe Api::V1::DriverController, type: :request do
       expect(data["phone"]).to eql(driver.phone)
     end
   end
+
+  describe "POST #me" do
+    it "updates current driver" do
+      driver = create(:driver, name: "Armen")
+      headers = { "X-Driver-Token": driver.authentication_token }
+      post '/api/v1/me', { driver: { name: "Arsen" } }, headers
+
+      expect do
+        driver.reload
+      end.to change { driver.name }.from("Armen").to("Arsen")
+      expect(response).to be_success
+    end
+  end
 end
 

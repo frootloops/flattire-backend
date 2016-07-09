@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post 'requests/:id/cancel', to: 'request#cancel'
 
       get 'me', to: 'driver#me'
+      post 'me', to: 'driver#update'
       get 'map', to: 'map#discover'
     end
   end
