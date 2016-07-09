@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160703180644) do
     t.string   "otp_secret_key"
     t.integer  "otp_counter"
     t.string   "authentication_token", default: "", null: false
+    t.string   "push_token",           default: "", null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.float    "latitude"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160703180644) do
     t.index "ll_to_earth(latitude, longitude)", name: "drivers_earthdistance_ix", using: :gist
     t.index ["authentication_token"], name: "index_drivers_on_authentication_token", unique: true, using: :btree
     t.index ["phone"], name: "index_drivers_on_phone", unique: true, using: :btree
+    t.index ["push_token"], name: "index_drivers_on_push_token", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
