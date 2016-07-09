@@ -24,7 +24,8 @@ class Api::V1::RequestController < ApiController
   private
 
   def request_params
-    params.require(:request).permit(:address, :cause, :latitude, :longitude)
+    params.require(:request)
+      .permit(:address, :cause, :latitude, :longitude, :icon)
   end
 
   def update_status(status)

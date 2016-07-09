@@ -38,13 +38,14 @@ ActiveRecord::Schema.define(version: 20160703180644) do
 
   create_table "requests", force: :cascade do |t|
     t.integer  "driver_id"
-    t.integer  "status",     default: 0,  null: false
-    t.text     "address",    default: "", null: false
-    t.text     "cause",      default: "", null: false
-    t.float    "latitude",                null: false
-    t.float    "longitude",               null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "status",     default: 0,   null: false
+    t.text     "address",    default: "",  null: false
+    t.text     "cause",      default: "",  null: false
+    t.float    "latitude",                 null: false
+    t.float    "longitude",                null: false
+    t.string   "icon",       default: "🚗", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index "ll_to_earth(latitude, longitude)", name: "requests_earthdistance_ix", using: :gist
     t.index ["driver_id"], name: "index_requests_on_driver_id", using: :btree
   end

@@ -9,6 +9,7 @@ class CreateRequests < ActiveRecord::Migration[5.0]
       t.text :cause, null: false, default: ""
       t.float :latitude, null: false
       t.float :longitude, null: false
+      t.string :icon, null: false, default: "🚗"
 
       t.timestamps
     end

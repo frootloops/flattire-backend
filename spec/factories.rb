@@ -6,6 +6,7 @@ FactoryGirl.define do
     cause "Flat tire"
     latitude 55.8836498
     longitude 37.7085781
+    icon "🚗"
   end
 
   factory :driver do
