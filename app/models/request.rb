@@ -9,4 +9,6 @@ class Request < ApplicationRecord
 
   validates :driver, :status, :cause, :address, :latitude, :longitude,
     presence: true
+
+  scope :available, -> { where(status: :pending) }
 end
